@@ -6,13 +6,15 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="6dp"
     app:cardElevation="0dp"
-    android:layout_margin="@dimen/margin_default"
+    android:layout_marginStart="@dimen/margin_default"
+    android:layout_marginEnd="@dimen/margin_default"
+    android:layout_marginBottom="@dimen/margin_default"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvHomeTimeName"
@@ -26,15 +28,18 @@
             app:layout_constraintTop_toBottomOf="@+id/ivHomeTime"
             tools:text="Home Team" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivHomeTime"
             android:layout_width="@dimen/team_image_size"
-            android:layout_height="@dimen/team_image_size"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_default"
-            android:layout_marginTop="@dimen/margin_default"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/cd_home_team"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoudedImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -53,20 +58,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_versus"
-            app:layout_constraintBottom_toBottomOf="@+id/ivHomeTime"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/ivHomeTime" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivAwayTime"
             android:layout_width="@dimen/team_image_size"
-            android:layout_height="@dimen/team_image_size"
-            android:layout_marginTop="@dimen/margin_default"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_default"
+            android:adjustViewBounds="true"
             android:contentDescription="@string/cd_away_team"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/RoudedImage"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

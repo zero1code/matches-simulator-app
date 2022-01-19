@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Simulator" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Simulator" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_500</item>
         <item name="colorPrimaryVariant">@color/primary_700</item>
@@ -10,19 +10,39 @@
         <item name="colorSecondaryVariant">@color/secondary_900</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/background_color</item>
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background_color</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+        <item name="android:navigationBarColor">@color/background_color</item>
+        <item name="toolbarStyle">@style/Toolbar</item>
+        <item name="actionOverflowButtonStyle">@style/ToolbarIconsColor</item>
     </style>
-    
-    <style name="Theme.Simulator.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-            <item name="android:windowTranslucentStatus">true</item>
+
+    <style name="Toolbar" parent="@style/Widget.MaterialComponents.Toolbar.Surface">
+        <item name="android:background">@color/background_color</item>
+    </style>
+
+    <style name="ToolbarIconsColor" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/black</item>
+
+    </style>
+
+    <style name="CollapsingToolbar" parent="Widget.Design.CollapsingToolbar">
+        <item name="background">@color/background_color</item>
     </style>
 
     <style name="TextAppearance.App.CollapsingToolbar.Expanded" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="TextAppearance.App.CollapsingToolbar.Collapsed" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="RoudedImage" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">6dp</item>
+        <item name="color">@color/white</item>
     </style>
 </resources>
