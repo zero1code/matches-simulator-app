@@ -3,9 +3,17 @@ package com.dio.simulator.ui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +24,7 @@ import com.dio.simulator.domain.Match;
 import com.dio.simulator.ui.adapter.MatchesAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -29,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MatchesApi matchesApi;
-    private MatchesAdapter matchesAdapter;
+    private MatchesAdapter matchesAdapter = new MatchesAdapter(Collections.emptyList());
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         setupMatchesList();
         setupMatechesRefresh();
         setupFloatingActionButton();
+        setupSwitchClick();
     }
 
     private void setupHttpClient() {
@@ -56,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupMatchesList() {
         binding.rvMatches.setHasFixedSize(true);
         binding.rvMatches.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvMatches.setAdapter(matchesAdapter);
         findMatchesFromApi();
     }
 
@@ -65,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupFloatingActionButton() {
         binding.fabSimulate.setOnClickListener(v -> {
+
             v.animate().rotationBy(360).setDuration(500).setListener(new AnimatorListenerAdapter() {
 
                 @Override
@@ -85,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         binding.srlMatches.setRefreshing(true);
         matchesApi.getMatches().enqueue(new Callback<List<Match>>() {
             @Override
-            public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
+            public void onResponse(@NonNull Call<List<Match>> call, @NonNull Response<List<Match>> response) {
                 if (response.isSuccessful()) {
                     List<Match> matches = response.body();
                     matchesAdapter = new MatchesAdapter(matches);
@@ -97,9 +109,21 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Match>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Match>> call, @NonNull Throwable t) {
                 showErrorMessage();
                 binding.srlMatches.setRefreshing(false);
+            }
+        });
+    }
+
+    private void setupSwitchClick() {
+        binding.switchDarkMode.setOnCheckedChangeListener((compoundButton, isChecked) -> {
+            if (isChecked) {
+                binding.switchDarkMode.setThumbResource(R.drawable.ic_sun);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                binding.switchDarkMode.setThumbResource(R.drawable.ic_moon);
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
         });
     }

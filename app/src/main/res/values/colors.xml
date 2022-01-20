@@ -7,7 +7,14 @@
     <color name="secondary_700">#e00027</color>
     <color name="secondary_900">#c40013</color>
     <color name="black">#FF000000</color>
+    <color name="yellow">#FFDD00</color>
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_color">#E8E6D1</color>
+    <color name="background_color_dark">#121212</color>
+    <color name="textColorDetail">#FFFFFFFF</color>
+    <color name="blackAlpha">#66000000</color>
+    <color name="cardBackground">#FAFAFA</color>
+    <color name="cardBackgroundDark">#1d1d1d</color>
+    <color name="whiteToDark">#C1C1C1</color>
 </resources>

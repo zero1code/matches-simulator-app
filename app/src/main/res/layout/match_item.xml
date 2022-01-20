@@ -10,7 +10,9 @@
     android:layout_marginEnd="@dimen/margin_default"
     android:layout_marginBottom="@dimen/margin_default"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    style="@style/CardView"
+    android:foreground="?android:selectableItemBackgroundBorderless">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
