@@ -6,3 +6,9 @@ App Android Nativo de Simulação de Partidas. Este repositório foi organizado 
 
 2. Desenvolvimento Mobile Nativo Para Android
     - [release/componentes-layouts-ui-ux-em-apps-android](https://github.com/zero1code/matches-simulator-app/tree/componentes-layouts-ui-ux-em-apps-android)
+
+3. Desenvolvimento Mobile Nativo Para Android
+    - [release/java-e-kotlin-juntos-construindo-apps-android](https://github.com/zero1code/matches-simulator-app/tree/java-e-kotlin-juntos-construindo-apps-android)
+
+4. Explorando o Firebase Para Apps Android Resilientes
+    - [release/explorando-o-firebase-para-apps-android-resilientes](https://github.com/zero1code/matches-simulator-app/tree/explorando-o-firebase-para-apps-android-resilientes)
